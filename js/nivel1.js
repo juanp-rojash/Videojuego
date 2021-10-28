@@ -1,7 +1,11 @@
 let iconos = []
 let selecciones = []
+let sec = 0
+let escala = 1
+var intervalo
 
 generarTablero()
+intervalo = setInterval(tiempo, 200)
 
 function cargarIconos() {
     iconos = [
@@ -27,7 +31,7 @@ function generarTablero() {
     let tablero = document.getElementById("tablero")
     let tarjetas = []
 
-    for(let i=0; i<24; i++){
+    for(let i=0; i<10; i++){
         tarjetas.push(`
         <div class="area-tarjeta" onclick="seleccionarTarjeta(${i})">
             <div class="tarjeta" id="tarjeta${i}">
@@ -76,4 +80,17 @@ function deseleccionar(selecciones) {
             trasera2.style.background = "plum"
         }
     }, 1000);
+}
+
+function tiempo() {
+
+    escala = escala - 0.01
+    sec++;
+
+    let relleno = document.getElementById("barra")
+    relleno.style.transform = "scaleX("+escala+")"
+
+    if(sec == 100){
+        clearInterval(intervalo)
+    }
 }

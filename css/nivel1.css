@@ -73,3 +73,13 @@ div{
         transform: rotateY(0deg);
     }
 }
+
+#control{
+    position: relative;
+}
+
+#barra{
+    position: absolute;
+    right: 5px;
+    top: -2px;
+}
