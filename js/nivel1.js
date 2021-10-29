@@ -5,7 +5,6 @@ let escala = 1
 var intervalo
 
 generarTablero()
-intervalo = setInterval(tiempo, 200)
 
 function cargarIconos() {
     iconos = [
@@ -27,9 +26,15 @@ function cargarIconos() {
 function generarTablero() {
     cargarIconos()
     selecciones = []
+    intervalo = setInterval(tiempo, 200)
 
     let tablero = document.getElementById("tablero")
     let tarjetas = []
+    let relleno = document.getElementById("barra")
+
+    relleno.style.transform = "scaleX(1)"
+    clearInterval(intervalo)
+    intervalo = setInterval(tiempo, 200)
 
     for(let i=0; i<10; i++){
         tarjetas.push(`
@@ -92,5 +97,7 @@ function tiempo() {
 
     if(sec == 100){
         clearInterval(intervalo)
+        sec = 0;
+        escala = 1
     }
 }
