@@ -2,6 +2,10 @@ let iconos = []
 let selecciones = []
 let sec = 0
 let escala = 1
+let contador = 0
+let reiniciar
+let puntos = 0
+
 var intervalo
 
 generarTablero()
@@ -24,9 +28,11 @@ function cargarIconos() {
 }
 
 function generarTablero() {
+    
     cargarIconos()
     selecciones = []
     intervalo = setInterval(tiempo, 200)
+    reiniciar = document.getElementById("nuevo-juego")
 
     let tablero = document.getElementById("tablero")
     let tarjetas = []
@@ -35,6 +41,7 @@ function generarTablero() {
     relleno.style.transform = "scaleX(1)"
     clearInterval(intervalo)
     intervalo = setInterval(tiempo, 200)
+    reiniciar.className = "ocultar"
 
     for(let i=0; i<10; i++){
         tarjetas.push(`
@@ -83,6 +90,14 @@ function deseleccionar(selecciones) {
         else{
             trasera1.style.background = "plum"
             trasera2.style.background = "plum"
+            contador += 2
+            puntos = puntos + 100 - sec
+            document.getElementById("acumulados").innerHTML = puntos
+
+            if(contador == 10){
+                clearInterval(intervalo)
+                ocultar(0)
+            }
         }
     }, 1000);
 }
@@ -99,5 +114,20 @@ function tiempo() {
         clearInterval(intervalo)
         sec = 0;
         escala = 1
+        ocultar(1)
+    }
+}
+
+function ocultar(id){
+    if(id == 1){
+        let reiniciar = document.getElementById("nuevo-juego")
+        reiniciar.className = ""
+        sec = 0;
+        escala = 1
+    }
+    else{
+        let siguiente = document.getElementById("nuevo-nivel")
+        siguiente.className = ""
+        localStorage.setItem("Puntos", puntos)
     }
 }

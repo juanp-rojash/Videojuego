@@ -53,9 +53,9 @@ body{
     align-items: center;
 }
 
-.nuevo-juego{
+#nuevo-juego, #nuevo-nivel, #puntaje{
     cursor: pointer;
-    background: linear-gradient(orange, darkorange);
+    background: linear-gradient(rgb(102, 66, 1), rgb(185, 102, 1));
     padding: 20px;
     border-radius: 50px;
     border: white 5px solid;
@@ -82,4 +82,14 @@ div{
     position: absolute;
     right: 5px;
     top: -2px;
+}
+
+.ocultar{
+    display: none;
+}
+
+#acumulados{
+    font-family: calibri;
+    text-align: center;
+    font-size: x-large;
 }
