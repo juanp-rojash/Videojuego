@@ -14,7 +14,7 @@ function cargarIconos() {
     iconos = [
         '<i class="fa-brands fa-twitter"></i>',
         '<i class="fa-brands fa-spotify"></i>',
-        '<i class="fa-solid fa-alien"></i>',
+        '<i class="fa-brands fa-linkedin"></i>',
         '<i class="fa-brands fa-redhat"></i>',
         '<i class="fa-brands fa-instagram"></i>',
         '<i class="fa-brands fa-linux"></i>',
@@ -22,7 +22,6 @@ function cargarIconos() {
         '<i class="fa-brands fa-whatsapp"></i>',
         '<i class="fa-brands fa-google-drive"></i>',
         '<i class="fa-brands fa-google-play"></i>',
-        '<i class="fa-brands fa-linkedin"></i>',
         '<i class="fa-brands fa-reddit"></i>'
     ]
 }
