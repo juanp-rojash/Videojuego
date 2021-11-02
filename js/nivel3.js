@@ -4,7 +4,7 @@ let sec = 0
 let escala = 1
 let contador = 0
 let reiniciar
-let puntos = 0
+let puntos = parseInt(localStorage.getItem("Puntos"))
 
 var intervalo
 
@@ -12,18 +12,18 @@ generarTablero()
 
 function cargarIconos() {
     iconos = [
-        '<i class="fa-brands fa-amazon"></i>',
-        '<i class="fa-brands fa-android"></i>',
-        '<i class="fa-brands fa-dropbox"></i>',
-        '<i class="fa-brands fa-evernote"></i>',
-        '<i class="fa-brands fa-facebook"></i>',
-        '<i class="fa-brands fa-github"></i>',
+        '<i class="fa-brands fa-twitter"></i>',
+        '<i class="fa-brands fa-spotify"></i>',
+        '<i class="fa-solid fa-alien"></i>',
+        '<i class="fa-brands fa-redhat"></i>',
+        '<i class="fa-brands fa-instagram"></i>',
+        '<i class="fa-brands fa-linux"></i>',
+        '<i class="fa-brands fa-ubuntu"></i>',
+        '<i class="fa-brands fa-whatsapp"></i>',
         '<i class="fa-brands fa-google-drive"></i>',
         '<i class="fa-brands fa-google-play"></i>',
-        '<i class="fa-brands fa-instagram"></i>',
         '<i class="fa-brands fa-linkedin"></i>',
-        '<i class="fa-brands fa-reddit"></i>',
-        '<i class="fa-brands fa-spotify"></i>'
+        '<i class="fa-brands fa-reddit"></i>'
     ]
 }
 
@@ -33,8 +33,6 @@ function generarTablero() {
     selecciones = []
     intervalo = setInterval(tiempo, 200)
     reiniciar = document.getElementById("nuevo-juego")
-    puntos = 0
-    contador = 0
 
     let tablero = document.getElementById("tablero")
     let tarjetas = []
@@ -46,7 +44,7 @@ function generarTablero() {
     reiniciar.className = "ocultar"
     document.getElementById("acumulados").innerHTML = puntos
 
-    for(let i=0; i<10; i++){
+    for(let i=0; i<18; i++){
         tarjetas.push(`
         <div class="area-tarjeta" onclick="seleccionarTarjeta(${i})">
             <div class="tarjeta" id="tarjeta${i}">
@@ -94,10 +92,10 @@ function deseleccionar(selecciones) {
             trasera1.style.background = "plum"
             trasera2.style.background = "plum"
             contador += 2
-            puntos = puntos + 100 - sec
+            puntos = puntos + 200 - sec
             document.getElementById("acumulados").innerHTML = puntos
 
-            if(contador == 10){
+            if(contador == 18){
                 clearInterval(intervalo)
                 ocultar(0)
             }
